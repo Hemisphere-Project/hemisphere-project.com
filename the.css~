@@ -1,0 +1,230 @@
+
+* {margin: 0px;padding:0px;}
+
+body {
+	/*background: #FFC;*/
+	/*height:10000px;*/
+
+}
+
+#mainCanvas{
+	position:fixed;	
+}
+
+
+#leftMenu{
+
+/*	background-color: #FFEFFF;
+	opacity:0.9;*/
+	
+	position: fixed;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding-top:20px;
+	padding-left:20px;
+	padding-right:20px;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 143px;
+	
+	font-family: 'QuicksandBook';
+	font-size: 14px;
+	z-index: 1;
+
+}
+
+#logo{
+	margin-bottom: 20px;	
+}
+
+ul {
+	/*background-color:#9999ff;*/
+	clear: left;
+	list-style: none;
+	overflow:auto;
+	position:relative;
+	display:block;
+	width:100%;
+	
+	/*cursor:default;*/
+	
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+li{
+	line-height: 22px;
+	height:22px;
+}
+
+/*img{
+
+}*/
+
+#langToggle{
+	cursor:default;
+	position:fixed;
+	right:10px;
+	top:10px;
+	height:24px;
+	line-height:24px;
+	font-family: 'QuicksandBook';
+	font-size: 14px;
+	z-index: 3;
+}
+#langToggle_fr{
+	float:left;
+}
+#langToggle_en{
+	float:left;
+}
+#langToggle_separator{
+	float:left;
+	width:10px;
+	text-align: center;
+}
+
+a:link  {
+	color:green;
+}
+a:visited {
+	color:green;
+}
+a:hover {
+	color:#8ACDA3;
+	cursor:default;
+/*	font-family: 'QuicksandBold';
+	font-size: 14px;*/
+	/*background-color: #8ACDA3;*/
+}
+a:active {
+	color:#a1a1a1;
+}
+
+#content{
+	z-index: 2;
+	position:absolute;
+	padding-bottom:40px;
+	/*background-color: #f4a1a1;*/
+	left:183px;
+	right:0px;
+	font-family: 'pmn_caecilialight';/*'pmn_caeciliaroman'pmn_caecilialight'pmn_caecilialightitalic'*/
+	font-size: 13px;
+	
+	/*-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;*/
+}
+.contentBody{
+	/*background-color:#d95b5b;*/
+	padding-left: 30px;	
+	padding-right:20px;
+	margin-top: 215px;
+}
+.centerText{
+	/*width:800px;*/
+	width:760px;
+	text-align: justify;	
+}
+
+.subcontent{
+	/*height:0px;*/
+	display:none;
+	width:600px;
+	overflow: hidden;
+	
+/*	animation-name:folding;
+	animation-duration:2s;
+	animation-timing-function:linear;
+	animation-delay:0s;
+	animation-iteration-count:infinite;
+	animation-direction:alternate;
+	animation-play-state:running;
+	-moz-animation-name:folding;
+	-moz-animation-duration:2s;
+	-moz-animation-timing-function:linear;
+	-moz-animation-delay:0s;
+	-moz-animation-iteration-count:infinite;
+	-moz-animation-direction:alternate;
+	-moz-animation-play-state:running;
+	-webkit-animation-name:folding;
+	-webkit-animation-duration:2s;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-delay:0s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-direction:alternate;
+	-webkit-animation-play-state:running;
+	-o-animation-name:folding;
+	-o-animation-duration:2s;
+	-o-animation-timing-function:linear;
+	-o-animation-delay:0s;
+	-o-animation-iteration-count:infinite;
+	-o-animation-direction:alternate;
+	-o-animation-play-state:running;*/
+}
+
+.subcontent ul
+{
+	list-style-type: none;
+	padding-left: 10px;
+	margin: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.subcontent ul li
+{
+	background-image: url('puce.png');
+	background-repeat: no-repeat;
+	background-position: 0px 5px; 
+	padding-left: 14px; 
+}
+
+.subcontent a:link  {
+	color:black;
+	text-decoration: none;
+}
+.subcontent a:visited {
+	color:black;
+	text-decoration: none;
+}
+.subcontent a:hover {
+	color:#8ACDA3;
+	cursor:default;
+/*	font-family: 'QuicksandBold';
+	font-size: 14px;*/
+	/*background-color: #8ACDA3;*/
+}
+.subcontent a:active {
+	color:#a1a1a1;
+}
+
+@keyframes folding
+{
+	from {height: 0px;}
+	to {height: 100px;}
+}
+
+@-moz-keyframes folding /* Firefox */
+{
+	from {height: 0px;}
+	to {height: 100%;}
+}
+
+@-webkit-keyframes folding /* Safari and Chrome */
+{
+	from {height: 0px;}
+	to {height: 100px;}
+}
+
+@-o-keyframes folding /* Opera */
+{
+	0% {height: 0px;}
+	100% {height: 100%;}
+}

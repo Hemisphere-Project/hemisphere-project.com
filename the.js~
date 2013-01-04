@@ -1,0 +1,58 @@
+
+var content,xmlhttp;
+
+var readyStateCheckInterval = setInterval(function() {
+    if (document.readyState === "complete") {
+        clearInterval(readyStateCheckInterval);
+    	start();
+    }
+}, 10);
+
+
+function toggleFold(elmnt){
+	 // $(elmnt).children(".subcontent").slideToggle(300, function() {
+	  		  // Animation complete.
+    	 // });
+    	 $(elmnt).next(".subcontent").slideToggle(300, function() {
+	  		  // Animation complete.
+    	 });
+}
+
+
+function start(){
+	
+	content = document.getElementById("content");
+}
+
+function loadXMLDoc(url){
+	
+	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+		xmlhttp.onreadystatechange = ajaxChange;
+		xmlhttp.open("GET",url,true);
+		xmlhttp.send(null);
+	}
+	else if (window.ActiveXObject){
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		if (xmlhttp) {
+			xmlhttp.onreadystatechange = ajaxChange;
+			xmlhttp.open("GET", url, true);
+			xmlhttp.send();
+		}
+	}else{
+		console.log("ajax not supported");
+	}
+	
+
+}
+
+function ajaxChange(){
+	if (xmlhttp.readyState==4 && xmlhttp.status==200){
+		content.innerHTML=xmlhttp.responseText;
+	}
+}
+
+
+
+
+
