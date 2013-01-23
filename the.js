@@ -17,9 +17,14 @@ function start(){
 	$.address.change(change);
 }
 
-function init(event){}
+function init(event){
+}
+
 function change(event){
-	loadContent($('[rel=address:' + event.value + ']').attr('href'));
+	if($('[rel=address:' + event.value + ']').attr('href'))
+		loadContent($('[rel=address:' + event.value + ']').attr('href'));
+	else if(event.value != '/')
+		loadContent(event.value);
 }
 
 function loadContent(url){

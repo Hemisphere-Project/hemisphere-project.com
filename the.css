@@ -1,4 +1,7 @@
 
+
+/*globals *********************************************/
+
 * {margin: 0px;padding:0px;}
 
 body {
@@ -7,10 +10,31 @@ body {
 
 }
 
-#mainCanvas{
-	position:fixed;	
+a:link  {
+	color:black;
+	text-decoration: none;
+}
+a:visited {
+	color:black;
+	text-decoration: none;
+}
+a:hover {
+	color:#8ACDA3;
+	cursor:default;
+}
+a:active {
+	color:#a1a1a1;
 }
 
+/*background canvas ***********************************/
+
+#mainCanvas{
+	position:fixed;
+	z-index: 0;	
+}
+
+
+/*left menu *******************************************/
 
 #leftMenu{
 
@@ -30,7 +54,7 @@ body {
 	
 	font-family: 'QuicksandBook';
 	font-size: 14px;
-	z-index: 1;
+	z-index: 1000;
 
 }
 
@@ -38,7 +62,7 @@ body {
 	margin-bottom: 20px;	
 }
 
-ul {
+#leftMenu ul {
 	/*background-color:#9999ff;*/
 	clear: left;
 	list-style: none;
@@ -56,14 +80,12 @@ ul {
 	-ms-user-select: none;
 	user-select: none;
 }
-li{
+#leftMenu li{
 	line-height: 22px;
 	height:22px;
 }
 
-/*img{
-
-}*/
+/*language toggle button **************************************/
 
 #langToggle{
 	cursor:default;
@@ -74,7 +96,7 @@ li{
 	line-height:24px;
 	font-family: 'QuicksandBook';
 	font-size: 14px;
-	z-index: 3;
+	z-index: 999;
 }
 #langToggle_fr{
 	float:left;
@@ -88,85 +110,42 @@ li{
 	text-align: center;
 }
 
-a:link  {
-	color:black;
-	text-decoration: none;
-}
-a:visited {
-	color:black;
-	text-decoration: none;
-}
-a:hover {
-	color:#8ACDA3;
-	cursor:default;
-}
-a:active {
-	color:#a1a1a1;
+/*git link ****************************************************/
+#gitLink{
+	position:fixed;
+	left:20px;
+	bottom:20px;
+/*	height:24px;
+	line-height:24px;
+	font-family: 'QuicksandBook';
+	font-size: 14px;*/
 }
 
+/*content *****************************************************/
+
 #content{
-	z-index: 2;
+	z-index: 997;
 	position:absolute;
 	padding-bottom:40px;
-	/*background-color: #f4a1a1;*/
 	left:183px;
 	right:0px;
 	font-family: 'pmn_caecilialight';/*'pmn_caeciliaroman'pmn_caecilialight'pmn_caecilialightitalic'*/
 	font-size: 13px;
-	
-	/*-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;*/
 }
 .contentBody{
-	/*background-color:#d95b5b;*/
 	padding-left: 30px;	
 	padding-right:20px;
 	margin-top: 215px;
 }
 .centerText{
-	/*width:800px;*/
 	width:760px;
 	text-align: justify;	
 }
 
 .subcontent{
-	/*height:0px;*/
 	display:none;
 	width:600px;
 	overflow: hidden;
-	
-/*	animation-name:folding;
-	animation-duration:2s;
-	animation-timing-function:linear;
-	animation-delay:0s;
-	animation-iteration-count:infinite;
-	animation-direction:alternate;
-	animation-play-state:running;
-	-moz-animation-name:folding;
-	-moz-animation-duration:2s;
-	-moz-animation-timing-function:linear;
-	-moz-animation-delay:0s;
-	-moz-animation-iteration-count:infinite;
-	-moz-animation-direction:alternate;
-	-moz-animation-play-state:running;
-	-webkit-animation-name:folding;
-	-webkit-animation-duration:2s;
-	-webkit-animation-timing-function:linear;
-	-webkit-animation-delay:0s;
-	-webkit-animation-iteration-count:infinite;
-	-webkit-animation-direction:alternate;
-	-webkit-animation-play-state:running;
-	-o-animation-name:folding;
-	-o-animation-duration:2s;
-	-o-animation-timing-function:linear;
-	-o-animation-delay:0s;
-	-o-animation-iteration-count:infinite;
-	-o-animation-direction:alternate;
-	-o-animation-play-state:running;*/
 }
 
 .subcontent ul
@@ -179,30 +158,42 @@ a:active {
 }
 .subcontent ul li
 {
-	background-image: url('puce.png');
+	background-image: url('imgs/puce.png');
 	background-repeat: no-repeat;
-	background-position: 0px 5px; 
+	background-position: 0px 2px; 
 	padding-left: 14px; 
 }
 
-/*.subcontent a:link  {
-	color:black;
-	text-decoration: none;
+#newsletter{
+	width:280px;
+	height:90px;
+	border: dashed;
+	border-color: #DDDDDD;
+	border-width: 1px;
+	padding: 5px;	
+	background-color: #FFFFFF;
 }
-.subcontent a:visited {
-	color:black;
-	text-decoration: none;
+#newsletter-separator{}
+#newsletter-separator{
+	width:100%;
+	height:1px;
+	margin-top:5px;
+	margin-bottom:5px;
+	border-bottom: dashed;
+	border-color: #DDDDDD;
+	border-width: 1px;
 }
-.subcontent a:hover {
-	color:#8ACDA3;
-	cursor:default;
-*/	font-family: 'QuicksandBold';
-	font-size: 14px;/*
-	*/background-color: #8ACDA3;/*
+#newsletter-content{
+	width:100%;
+	height:60px;
 }
-.subcontent a:active {
-	color:#a1a1a1;
-}*/
+#newsletter-form-container{
+	width:100%;
+	height:100%;
+	line-height: 60px;
+	text-align: center;
+}
+
 
 @keyframes folding
 {
