@@ -85,6 +85,18 @@ a:active {
 	height:22px;
 }
 
+#labsLink{
+	position:fixed;
+	left:20px;
+	bottom:40px;
+}
+
+#gitLink{
+	position:fixed;
+	left:20px;
+	bottom:20px;
+}
+
 /*language toggle button **************************************/
 
 #langToggle{
@@ -110,16 +122,7 @@ a:active {
 	text-align: center;
 }
 
-/*git link ****************************************************/
-#gitLink{
-	position:fixed;
-	left:20px;
-	bottom:20px;
-/*	height:24px;
-	line-height:24px;
-	font-family: 'QuicksandBook';
-	font-size: 14px;*/
-}
+
 
 /*content *****************************************************/
 
@@ -138,7 +141,7 @@ a:active {
 	margin-top: 215px;
 }
 .centerText{
-	width:760px;
+	width:800px;
 	text-align: justify;	
 }
 
