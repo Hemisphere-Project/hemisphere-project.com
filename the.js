@@ -7,27 +7,97 @@
 //     	start();
 //     }
 // }, 10);
+var DEFAULT_LOCALE = 'fr';
+var currentLocale  = DEFAULT_LOCALE;
+var urlParamsHM = {};
 
 $("document").ready(function (){
 	start();
 });
 
 function start(){
-	$.address.init(init);
-	$.address.change(change);
+	$(window).bind('hashchange',onHashChange);
+	urlParamsHM = extractUrlParams();
+	if(urlParamsHM['lng'])
+		currentLocale = urlParamsHM['lng'];	
+	if(window.location.hash != '')
+		$(window).hashchange();	
 }
 
-function init(event){
+
+function onHashChange(){
+	console.log(window.location.hash);
+	loadContent(window.location.href);
 }
 
-function change(event){
-	if($('[rel=address:' + event.value + ']').attr('href'))
-		loadContent($('[rel=address:' + event.value + ']').attr('href'));
-	else if(event.value != '/')
-		loadContent(event.value);
+
+function menuClick(event){
+	event.preventDefault();
+	//loadContent(event.currentTarget.href);
+	var urlParamsString = urlParamsHMToString();
+	if(urlParamsString != '')
+		urlParamsString = '?'+urlParamsString;
+	
+	window.location.hash = '!'+event.currentTarget.href.substring(event.currentTarget.baseURI.length)+urlParamsString;
 }
+
+function langToggleClick(event){
+	event.preventDefault();
+	
+	switch (event.currentTarget.id) {
+		case 'langToggle_fr' :
+			setLocale('fr');
+			break;
+		case 'langToggle_en' :
+			setLocale('en');
+			break;
+		default:
+			console.log('err#1 unexpected langToggle id');
+			break;
+		}
+
+}
+//change the url's locale parameter according to the input value
+function setLocale(value){
+	
+	urlParamsHM['lng'] = value;
+	updateParamsInURL();
+}
+
+function updateParamsInURL(){
+	var paramsIndex = window.location.href.indexOf('?')+1;
+	var paramsString = urlParamsHMToString();
+	// for(var param in urlParamsHM){
+	// 	paramsString += param + '=' + urlParamsHM[param] + '&';
+	// }
+	
+	//paramsString = paramsString.substring(0,paramsString.length - 1);
+	if(paramsIndex != 0){
+		window.location.href = window.location.href.substring(0,paramsIndex)+paramsString;
+	}else{
+		window.location.href += '?'+paramsString;
+	}
+}
+
+function urlParamsHMToString(){
+	var string = '';
+	for(var param in urlParamsHM){
+		string += param + '=' + urlParamsHM[param] + '&';
+	}
+	string = string.substring(0,string.length - 1);
+	return string;
+}
+
 
 function loadContent(url){
+	console.log(url);
+	//history.pushState(null,null,url)
+	var hashPos = url.indexOf('#!'); 
+	if(hashPos != -1){
+		
+		var newUrl = url.substring(0,hashPos) + url.substring(hashPos+2);
+		url = newUrl;		
+	}
 	$("#content").load(url);
 }
 
@@ -38,44 +108,17 @@ function toggleFold(elmnt){
 }
 
 
-
-// function loadXMLDoc(url){
-	
-// 	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
-// 		xmlhttp=new XMLHttpRequest();
-// 		xmlhttp.onreadystatechange = ajaxChange;
-// 		xmlhttp.open("GET",url,true);
-// 		xmlhttp.send(null);
-		
-// 		$.address.value(url);  
-// 	}
-// 	else if (window.ActiveXObject){
-// 		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-// 		if (xmlhttp) {
-// 			xmlhttp.onreadystatechange = ajaxChange;
-// 			xmlhttp.open("GET", url, true);
-// 			xmlhttp.send();
-			
-// 			$.address.value(url);  
-// 		}
-// 	}else{
-// 		console.log("ajax not supported");
-// 	}
-	
-
-// }
-
-
-// function ajaxChange(){
-// 	if (xmlhttp.readyState==4 && xmlhttp.status==200){
-// 		content.innerHTML=xmlhttp.responseText;
-// 	}
-// }
-
-
-// jQuery style
-
-
+function extractUrlParams(){	
+	var t = [];
+	if(window.location.search != "")
+		t = location.search.substring(1).split('&');
+	var f = {};
+	for (var i=0; i<t.length; i++){
+		var x = t[ i ].split('=');
+		f[x[0]]=x[1];
+	}
+	return f;
+}
 
 
 
