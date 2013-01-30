@@ -43,9 +43,7 @@ function emailTI_onclick(elmnt){
 	<?php
 
 
-	if(isset($_POST['news_letter_unsubscription'])){
-			echo 'okaaaaaaaaaaaaaaay';
-	}else if(isset($_GET['sc'])){
+	if(isset($_GET['sc'])){
 		echo "<p></br>Your subscription is now complete !</br>Thank you !</p>";
 	}else if(isset($_GET['usc'])){
 		echo "<p></br>You have successfully</br>unsubscribed to the newsletter. ";
