@@ -1,0 +1,5 @@
+AuthUserFile /homez.154/alainbarm/hemisphere/.htpasswd
+AuthGroupFile /dev/null
+AuthName "survival of the fittest"
+AuthType Basic
+require valid-user
