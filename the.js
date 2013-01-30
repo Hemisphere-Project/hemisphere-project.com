@@ -41,9 +41,13 @@ function start(){
 function menuClick(event){
 	event.preventDefault();
 	//loadContent(event.currentTarget.href);
+	trimUSCandSCParams();
+	
 	var urlParamsString = urlParamsHMToString();
 	if(urlParamsString != '')
 		urlParamsString = '?'+urlParamsString;
+	
+	
 	
 	window.location.hash = '!'+event.currentTarget.href.substring(event.currentTarget.baseURI.length)+urlParamsString;
 }
@@ -83,7 +87,7 @@ function updateParamsInURL(){
 	if(paramsIndex != 0){// we already have params in the url
 		window.location.href = window.location.href.substring(0,paramsIndex)+paramsString;
 	}else{//we don't have any params in the url
-		var hashIndex = window.location.href.indexOf('!#');
+		var hashIndex = window.location.href.indexOf('#!');
 		if(hashIndex != -1){//we have a hashbang in the url
 			window.location.href += '?'+paramsString;
 		}else{// we don't have any hashbang in the url
@@ -106,12 +110,29 @@ function urlParamsHMToString(){
 function onHashChange(){
 	//console.log(window.location.hash);
 	
-	loadContent(window.location.href);
-	
 	urlParamsHM = extractUrlParams();
 	updateLangIfRequiered();
+	
+	
+	
+	loadContent(window.location.href);
+	
+
 }
 
+function trimUSCandSCParams(){
+	if(urlParamsHM['usc']){
+		delete urlParamsHM['usc'];
+		//updateParamsInURL();
+		//return;
+	}
+	if(urlParamsHM['sc']){
+		delete urlParamsHM['sc'];
+		//updateParamsInURL();
+		//return;
+	}
+	
+}
 
 // loadContent is designed to load content inside the #content element
 function loadContent(url){
@@ -177,7 +198,7 @@ function toggleFold(elmnt){
 }
 
 // extractUrlParams takes all url variables and puts them in an hashmap (object)
-// we can't use here window.location.search because of the !# 
+// we can't use here window.location.search because of the #! 
 function extractUrlParams(){	
 	var t = [];
 	if(window.location.href.indexOf('?') != -1)
