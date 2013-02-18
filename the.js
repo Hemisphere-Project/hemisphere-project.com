@@ -9,12 +9,6 @@ var NO_LOCAL_STRG = false;
 
 
 $("document").ready(function (){
-	// for bot crawling	
-	urlParamsHM = extractUrlParams();
-	if(urlParamsHM['_escaped_fragment_']){
-		window.location.href = window.location.href.substring(0,window.location.href.indexOf('_escaped_fragment_')-1)+"htmlsnapshots/"+window.location.href.substring(window.location.href.indexOf('_escaped_fragment_')+19);
-	}
-	//regular start	
 	start();
 });
 
