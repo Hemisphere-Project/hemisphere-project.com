@@ -24,12 +24,24 @@
 		<div id="leftMenu">
 			<div id="logo"><img alt="" src="imgs/logo.png"></div>
 			<ul id="menu_opts"selectable=false>
+				<li><a onclick="menuClick(event)" href="contents/about.php">About</a></li>
+				<li><a onclick="menuClick(event)" href="contents/dispositifs/installations.php" >Installations</a></li>
+				<li><a onclick="menuClick(event)" href="contents/editions/editions.php" >Editions</a></li>
+				<li><a onclick="menuClick(event)" href="contents/makers.html" >Makers</a></li>
+				<li><a onclick="menuClick(event)" href="contents/contact.php" >Contact</a></li>
 			</ul>
 			<div id="labsLink"><a href="http://labs.hemisphere-project.com" target="_blank">.labs</a></div>
 			<div id="gitLink"><a href="https://github.com/hemisphere-code" target="_blank">.git</a></div>
 		</div>
 		<div id="langToggle"><a onclick="langToggleClick(event)" id="langToggle_fr">FR</a><div id="langToggle_separator">|</div><a onclick="langToggleClick(event)" id="langToggle_en">EN</a></div>
-		<div id="content"></div>
+		<div id="content">
+			<div class="contentBody centerText">
+			<p>Hemisphere is a production studio dediacted to the creation and the diffusion of digital installations and publications. It is shaped as a gathering of visual artists, musicians, designers, and engineers, who cultivate an everyday proximity with the digital technologies, through their own authorship practice, as much as by pure attraction to the universe of possiblities open by the latter.  </p></br>
+			<p>Hemisphere is born of a common will to mutualize knowledge and know-how, to create a circulation of knowing, to form an experise and dipose it to authors in every field of the contemporary creation. </p></br>
+			<p>Finally, because this ambition to mutualize knowledge is not limited to the circle of its makers, we whish as much as possible, to open the source of Hemisphere's productions to the community </p>
+			</div>	
+		</div>
+		</div>
 		
 		<canvas id="mainCanvas" resize="true"></canvas>
 		<div id="localeSelector"></div>

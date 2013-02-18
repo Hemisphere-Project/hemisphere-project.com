@@ -9,6 +9,12 @@ var NO_LOCAL_STRG = false;
 
 
 $("document").ready(function (){
+	// for bot crawling	
+	urlParamsHM = extractUrlParams();
+	if(urlParamsHM['_escaped_fragment_']){
+		window.location.href = window.location.href.substring(0,window.location.href.indexOf('_escaped_fragment_')-1)+"htmlsnapshots/"+window.location.href.substring(window.location.href.indexOf('_escaped_fragment_')+19);
+	}
+	//regular start	
 	start();
 });
 
@@ -152,6 +158,15 @@ function loadContent(url){
 		//nohin to load in #content	
 		$("#content").html('');
 		return;
+	}
+	
+	if(!NO_LOCAL_STRG && !urlParamsHM['lng'] && localStorage.hemisp_lng){ //if we have a lng stored locally and the url doesn't specify a lng
+		// we add the lng to the url for this request
+		if(url.indexOf('?') != -1){// we already have params
+			url += '&lng='+localStorage.hemisp_lng;
+		}else{// we have no preexisting params
+			url += '?lng='+localStorage.hemisp_lng;
+		}
 	}
 	
 	$("#content").load(url);
