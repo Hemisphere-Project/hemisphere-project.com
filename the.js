@@ -48,8 +48,13 @@ function menuClick(event){
 		urlParamsString = '?'+urlParamsString;
 	
 	
-	
-	window.location.hash = '!'+event.currentTarget.href.substring(event.currentTarget.baseURI.length)+urlParamsString;
+	//console.log("***FF DEBUG***  ",event.currentTarget.href,"  ",event.currentTarget.baseURI.length,"  ",urlParamsString);
+	//window.location.hash = '!'+event.currentTarget.href.substring(event.currentTarget.baseURI.length)+urlParamsString;
+	if(window.location.href.indexOf("#!")!=-1)
+		window.location.hash = '!'+event.currentTarget.href.substring(window.location.href.indexOf("#!"))+urlParamsString;
+	else
+		window.location.hash = '!'+event.currentTarget.href.substring(window.location.href.length)+urlParamsString;
+
 }
 
 function langToggleClick(event){
@@ -136,11 +141,11 @@ function trimUSCandSCParams(){
 
 // loadContent is designed to load content inside the #content element
 function loadContent(url){
-	console.log(url);
+	//console.log(url);
 	
 	var hashPos = url.indexOf('#!'); 
 	if(hashPos != -1){
-		if(url.indexOf('?') !=-1 && url.indexOf('?') == hashPos+2){
+		if((url.indexOf('?') !=-1 && url.indexOf('?') == hashPos+2) || url.length <= hashPos+2){
 			// in this case we have nohin to load in #content
 			$("#content").html('');
 			return;	
