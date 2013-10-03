@@ -5,9 +5,11 @@
 * {margin: 0px;padding:0px;}
 
 body {
-	/*background: #FFC;*/
-	/*height:10000px;*/
 
+}
+
+input{
+	 -webkit-transform: translate3d(0,0,0); /* patch to workaround a webkit bug related to inputs */
 }
 
 a:link  {

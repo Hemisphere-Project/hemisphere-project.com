@@ -1,6 +1,1 @@
 SetEnv PHP_VER 5_4
-AuthUserFile /homez.154/alainbarm/hemisphere/.htpasswd
-AuthGroupFile /dev/null
-AuthName "survival of the fittest"
-AuthType Basic
-require valid-user

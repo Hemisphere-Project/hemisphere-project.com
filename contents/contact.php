@@ -51,7 +51,6 @@ function emailTI_onclick(elmnt){
 		echo	'<div id="newsletter-form-container">';
 		echo 	'<form name="news_letter_subscription"  onsubmit="return validateForm()" >
 					<input type="text" name="emailTI" value="my@email.com" onclick="emailTI_onclick(this)">
-
 					<input type="submit" value="Subscribe">
 				</form>';
 		echo 	'</div>';
